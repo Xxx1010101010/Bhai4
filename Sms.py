@@ -105,12 +105,7 @@ def smsforward(looping=False):
 
 
 
-# This function will remove all text but keeping numeric OTPs or verification codes only
-def getnumbersonly(msg):
-    arr= re.findall(r'[0-9]+', msg)
-    newmsg = ""
-    for i in arr:
-        newmsg = newmsg + i + ", "
+
     return newmsg
 
 # calling sms forward function for the first time
