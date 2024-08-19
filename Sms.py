@@ -88,7 +88,7 @@ def smsforward(looping=False):
             looper = True  # This will keep the script after defined interval
             print("You can stop the script anytime by pressing Ctrl+C")
     print(f"Last SMS forwarded on {lastSMS}")
-    jdata = os.popen("termux-sms-list h-l 1").read()  # Reading latest 50 SMSs using termux-api
+    jdata = os.popen("termux-sms-list h-l 50").read()  # Reading latest 50 SMSs using termux-api
     jd = json.loads(jdata)  # storing JSON output
     print(f"Reading {len(jd)} latest SMSs")
     for j in jd:
@@ -98,7 +98,7 @@ def smsforward(looping=False):
                     print(f"{f} found")
                     for m in mnumber_s:
                         print(f"Forwarding to {m}")
-                        resp = os.popen(f"termux-sms-send -n {m} {getnumbersonly(j['body'])}")  # forwarding sms to predefined mobile number(s)
+                        resp = os.popen(f"termux-sms-send -n {m} (j['body'])}")  # forwarding sms to predefined mobile number(s)
                         tfile = open(tmpFile, "w")
                         tfile.write(j['received'])
                         tfile.close()
